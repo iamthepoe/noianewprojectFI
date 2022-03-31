@@ -96,6 +96,14 @@ namespace NoiasProject
                 carro.cor = Console.ReadLine();
                 Console.WriteLine("Digite o número de portas do seu veículo: ");
                 carro.numero_portas = int.Parse(Console.ReadLine());
+                Console.WriteLine("Qual a capacidade máxima do porta mala: ");
+                carro.capacidadePortaMala = int.Parse(Console.ReadLine());
+                Console.WriteLine("O carro possui bagageiro? [S/N] :");
+                string msg = Console.ReadLine();
+                carro.bagageiro =  msg!="s" || msg!="S" ? true : false;
+                Console.WriteLine("O carro possui cambio? [S/N] :");
+                msg = Console.ReadLine();
+                carro.cambio = msg != "s" || msg != "S" ? true : false;
                 Console.Clear();
                 return carro;
         }
