@@ -10,6 +10,9 @@ namespace menuAndFunctions
     {
         static void Main(string[] args)
         {
+        
+               //FIZ OS CASOS 1 E 2
+                
             int n = 0, optionMenu;
             string modelo, fabricante, cor;
             do
