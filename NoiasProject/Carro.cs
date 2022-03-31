@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NoiasProject
 {
-    class Carro
+    class Carro: Veiculo
     {
         public int capacidadePortaMala;
         public bool bagageiro;
