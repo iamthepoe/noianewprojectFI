@@ -11,7 +11,7 @@ namespace menuAndFunctions
         static void Main(string[] args)
         {
         
-               //FIZ OS CASOS 1 E 2
+               //FIZ OS CASOS 1 E 2 e 6
                 
             int n = 0, optionMenu;
             string modelo, fabricante, cor;
@@ -41,6 +41,11 @@ namespace menuAndFunctions
                     case 4:
                         break;
                     case 5:
+                            n = 2;
+                            Console.Clear();
+                        break;
+                    case 6:
+                            caso6();
                             n = 2;
                             Console.Clear();
                         break;
@@ -120,6 +125,13 @@ namespace menuAndFunctions
             n = 2;
             return n;
         }
-        
+        static void caso6() {
+            int variavelcarroscadastrados=0;
+            for (int x = 0; x < 300; x++) {
+                if (variavelcarroscadastrados!=0) {
+                    Console.WriteLine("variaveldonomedoveiculo[x] \n variaveldomodelodoveiculo[x] \n variaveldoanodocarro[x] \n variaveldacordocarro[x] \n numerodeportasdocarro[x] \n variaveldaplaca[x]");
+                }
+            }
+        }
     }
 }
