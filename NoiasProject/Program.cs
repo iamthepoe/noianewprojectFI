@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,12 +17,12 @@ namespace NoiasProject
             Caminhao[] caminhao = new Caminhao[200];
             for(int i = 0; i<carro.Length; i++) //preenchendo os arrays
             {
-                carro[i] = new Carro("", "", 0000, "", 0, 0, false, false, false);
+                carro[i] = new Carro("", "", 0000, "", 0,"", 0, false, false, false);
             }
 
             for (int i = 0; i < caminhao.Length; i++) //preenchendo os arrays
             {
-                caminhao[i] = new Caminhao("", "", 0000,"", 0, 0, 0, 0, false);
+                caminhao[i] = new Caminhao("", "", 0000,"", 0,"", 0, 0, 0, false);
             }
 
             do
@@ -102,7 +102,7 @@ namespace NoiasProject
         static Carro CadastrarCarro()
         {
             Console.Clear();
-            Carro carro = new Carro("", "", 0000, "", 0, 0, false, false, false);
+            Carro carro = new Carro("", "", 0000, "", 0,"", 0, false, false, false);
             Console.WriteLine("Digite o modelo do seu caminhão: ");
             carro.modelo = Console.ReadLine();
             Console.WriteLine("Digite o/a fabricante do seu caminhão: ");
@@ -115,6 +115,8 @@ namespace NoiasProject
             carro.numero_portas = int.Parse(Console.ReadLine());
             Console.WriteLine("Qual a capacidade máxima do porta mala: ");
             carro.capacidadePortaMala = int.Parse(Console.ReadLine());
+            Console.WriteLine("Insira a placa: ");
+            carro.placa = Console.ReadLine();
             Console.WriteLine("O carro possui bagageiro? [S/N] :");
             string msg = Console.ReadLine();
             carro.bagageiro = msg != "s" || msg != "S" ? true : false;
@@ -129,7 +131,7 @@ namespace NoiasProject
         static Caminhao CadastrarCaminhao()
         {
             Console.Clear();
-            Caminhao caminhao = new Caminhao("", "", 0000, "", 0, 0, 0, 0, false);
+            Caminhao caminhao = new Caminhao("", "", 0000, "", 0, "",0, 0, 0, false);
             Console.WriteLine("Digite o modelo do seu caminhão: ");
             caminhao.modelo = Console.ReadLine();
             Console.WriteLine("Digite o/a fabricante do seu caminhão: ");
@@ -140,6 +142,8 @@ namespace NoiasProject
             caminhao.cor = Console.ReadLine();
             Console.WriteLine("Digite o número de portas do seu veículo: ");
             caminhao.numero_portas = int.Parse(Console.ReadLine());
+            Console.WriteLine("Insira a placa: ");
+            caminhao.placa = Console.ReadLine();
             Console.WriteLine("Digite o número de eixos: ");
             caminhao.numero_eixos = int.Parse(Console.ReadLine());
             Console.WriteLine("Digite a carga máxima:");

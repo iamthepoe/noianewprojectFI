@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,7 @@ namespace NoiasProject
         public int numero_eixos;
         public double maximo_carga;
         public double altura;
-        public Caminhao(string modelo, string fabricante, int ano, string cor,  int numero_portas, int numero_eixos, double maximo_carga, double altura, bool cadastrado): base(modelo, fabricante, ano, cor, numero_portas, cadastrado)
+        public Caminhao(string modelo, string fabricante, int ano, string cor,  int numero_portas, string placa, int numero_eixos, double maximo_carga, double altura, bool cadastrado): base(modelo, fabricante, ano, cor, numero_portas, placa, cadastrado)
         {
             this.numero_eixos = numero_eixos;
             this.maximo_carga = maximo_carga;

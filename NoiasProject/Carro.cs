@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,7 @@ namespace NoiasProject
         public int capacidadePortaMala;
         public bool bagageiro;
         public bool cambio;
-        public Carro(string modelo, string fabricante, int ano, string cor, int numero_portas, int capacidadePortaMala, bool bagageiro, bool cambio, bool cadastrado): base(modelo, fabricante, ano, cor, numero_portas, cadastrado)
+        public Carro(string modelo, string fabricante, int ano, string cor, int numero_portas, string placa, int capacidadePortaMala, bool bagageiro, bool cambio, bool cadastrado): base(modelo, fabricante, ano, cor, numero_portas, placa, cadastrado)
         {
             this.capacidadePortaMala = capacidadePortaMala;
             this.bagageiro = bagageiro;
