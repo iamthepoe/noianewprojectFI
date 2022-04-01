@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,19 +10,19 @@ namespace NoiasProject
     {
         static void Main(string[] args)
         {
-            int n = 0, optionMenu, meuCarro = 0, meuCaminhao = 0;
+            int optionMenu, meuCarro = 0, meuCaminhao = 0;
             int carrosRegistrados = 0, caminhoesRegistrados = 0;
-            string modelo, fabricante, cor;
+            bool saiu = false;;
             Carro[] carro = new Carro[300];
             Caminhao[] caminhao = new Caminhao[200];
             for(int i = 0; i<carro.Length; i++) //preenchendo os arrays
             {
-                carro[i] = new Carro("", "", 0000, "", 0,"", 0, false, false, false);
+                carro[i] = new Carro(" - - - - ", "- - - -", 000000, "- - - -", 000000, "- - - -", 000000, false, false, false);
             }
 
             for (int i = 0; i < caminhao.Length; i++) //preenchendo os arrays
             {
-                caminhao[i] = new Caminhao("", "", 0000,"", 0,"", 0, 0, 0, false);
+                caminhao[i] = new Caminhao("- - - -", "- - - -", 000000,"- - - -", 0,"- - - -", 000000, 000000, 000000, false);
             }
 
             do
@@ -32,9 +32,9 @@ namespace NoiasProject
                 switch (optionMenu)
                 {
                     case 0:
-                        Console.WriteLine("Deseja mesmo sair? [1 - sim/2- não]");
-                        n = int.Parse(Console.ReadLine());
-                        optClose(n);
+                        Console.WriteLine("Deseja mesmo sair? [1 - SIM /2 - NÃO]");
+                        int n = int.Parse(Console.ReadLine());
+                        saiu = optClose(n);
                         break;
                     case 1:
                         if (carrosRegistrados < 300)
@@ -47,9 +47,6 @@ namespace NoiasProject
                         {
 
                         }
-                        n = 2;
-                        Console.Clear();
-
                         break;
                     case 2:
                         if (caminhoesRegistrados < 200)
@@ -62,17 +59,15 @@ namespace NoiasProject
                         {
 
                         }
-                        n = 2;
-                        Console.Clear();
                         break;
                     case 3:
+                        ConsultarPorPlaca(caminhao, carro);
                         break;
                     case 4:
-                        ConsultarPorModelo(carro, caminhao);
+                        ConsultarPorModelo(caminhao);
                         break;
                     case 5:
-                        n = 2;
-                        Console.Clear();
+                        ConsultarPorCor(carro);
                     break;
 
                     case 6:
@@ -82,34 +77,35 @@ namespace NoiasProject
                         ExibirCaminhoes(caminhao);
                         break;
                 };
-            } while (n == 2);
+            } while (!saiu);
             Console.ReadKey();
         }
-        static int optClose(int n)
+        static bool optClose(int n)
         {
             if (n == 1)
             {
                 Console.Clear();
                 Console.WriteLine("Me desculpe :( prometo ser melhor da próxima vez!!");
+                Console.ReadLine();
+                return true;
             }
             else
             {
                 Console.Clear();
-                n = 2;
+                return false;
             }
-            return n;
         }
         static Carro CadastrarCarro()
         {
             Console.Clear();
             Carro carro = new Carro("", "", 0000, "", 0,"", 0, false, false, false);
-            Console.WriteLine("Digite o modelo do seu caminhão: ");
+            Console.WriteLine("Digite o modelo do seu carro: ");
             carro.modelo = Console.ReadLine();
-            Console.WriteLine("Digite o/a fabricante do seu caminhão: ");
+            Console.WriteLine("Digite o/a fabricante do seu carro: ");
             carro.fabricante = Console.ReadLine();
             Console.WriteLine("Digite o ano do veículo: ");
             carro.ano = int.Parse(Console.ReadLine());
-            Console.WriteLine("Digite a cor do seu caminhão: ");
+            Console.WriteLine("Digite a cor do seu carro: ");
             carro.cor = Console.ReadLine();
             Console.WriteLine("Digite o número de portas do seu veículo: ");
             carro.numero_portas = int.Parse(Console.ReadLine());
@@ -154,18 +150,49 @@ namespace NoiasProject
             Console.Clear();
             return caminhao;
         }
-        static void ConsultarPorModelo(Carro[] carro, Caminhao[] caminhao)
+        static void ConsultarPorCor(Carro[] carro)
         {
-            string ModeloMarca = "";
-            Console.Write("Digite o modelo/marca do veículo: ");
-            ModeloMarca = Console.ReadLine();
-            for (int c = 0; c<carro.Length; c++)
+            string cor = "";
+            Console.WriteLine("Insira a cor do carro: ");
+            cor = Console.ReadLine();
+            for (int c = 0; c < carro.Length; c++)
             {
-                if (ModeloMarca == carro[c].modelo)
+                if (cor == carro[c].cor)
                 {
                     carro[c].DadosCarro();
                 }
             }
+            Console.ReadLine();
+            Console.Clear();
+        }
+        static void ConsultarPorPlaca(Caminhao[] caminhao, Carro[] carro)
+        {
+            string placa = "";
+            Console.Write("Digite a placa do veículo: ");
+            placa = Console.ReadLine();
+            for (int c = 0; c < caminhao.Length; c++)
+            {
+                if (placa == caminhao[c].placa)
+                {
+                    caminhao[c].DadosCaminhao();
+                }
+            }
+
+            for (int c = 0; c < carro.Length; c++)
+            {
+                if (placa == carro[c].placa)
+                {
+                    carro[c].DadosCarro();
+                }
+            }
+            Console.ReadLine();
+            Console.Clear();
+        }
+        static void ConsultarPorModelo(Caminhao[] caminhao)
+        {
+            string ModeloMarca = "";
+            Console.Write("Digite o modelo/marca do veículo: ");
+            ModeloMarca = Console.ReadLine();
             for (int c = 0; c<caminhao.Length; c++)
             {
                 if (ModeloMarca == caminhao[c].modelo)
