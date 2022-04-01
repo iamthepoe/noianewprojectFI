@@ -68,6 +68,7 @@ namespace NoiasProject
                     case 3:
                         break;
                     case 4:
+                        ConsultarPorModelo(carro, caminhao);
                         break;
                     case 5:
                         n = 2;
@@ -148,6 +149,28 @@ namespace NoiasProject
             caminhao.cadastrado = true;
             Console.Clear();
             return caminhao;
+        }
+        static void ConsultarPorModelo(Carro[] carro, Caminhao[] caminhao)
+        {
+            string ModeloMarca = "";
+            Console.Write("Digite o modelo/marca do veículo: ");
+            ModeloMarca = Console.ReadLine();
+            for (int c = 0; c<carro.Length; c++)
+            {
+                if (ModeloMarca == carro[c].modelo)
+                {
+                    carro[c].DadosCarro();
+                }
+            }
+            for (int c = 0; c<caminhao.Length; c++)
+            {
+                if (ModeloMarca == caminhao[c].modelo)
+                {
+                    caminhao[c].DadosCaminhao();
+                }
+            }
+            Console.ReadLine();
+            Console.Clear();
         }
         static void ExibirCarros(Carro[] carros)
         {
